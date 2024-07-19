@@ -25,7 +25,12 @@ Route::get('/dashboard', function () {
 
 
 // Người dùng 
-
+Route::get('/', function(){
+    return view('client.home');
+});
+Route::get('/shop', function(){
+    return view('client.shop');
+});
 
 
 // Kết thúc của người dùng 
