@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Male_Fashion Template">
+    <meta name="description" content="Atino">
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,9 +12,11 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    
     rel="stylesheet">
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('asset/css/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('asset/css/elegant-icons.css')}}" type="text/css">
@@ -49,9 +51,9 @@
             </div>
         </div>
         <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="{{asset('asset/img/icon/search.png')}}" alt=""></a>
-            <a href="#"><img src="img/icon/heart.png" alt=""></a>
-            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="#" class="search-switch"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> <span>0</span></a>
             <div class="price">$0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
@@ -74,7 +76,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="{{route('signin')}}">Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
@@ -100,9 +102,9 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="/">Home</a></li>
-                            <li><a href="/shop">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <li class="active"><a href="/">Trang chủ</a></li>
+                            <li><a href="/shop">Cửa hàng</a></li>
+                            <li><a href="#">Trang</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">About Us</a></li>
                                     <li><a href="./shop-details.html">Shop Details</a></li>
@@ -112,16 +114,15 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="#" class="search-switch text-dark"><i class="fa-solid fa-magnifying-glass fa-xl text-black"></i></a>
+                        <a href="#" class="text-dark"><i class="fa-regular fa-heart fa-xl text-dark"></i></a>
+                        <a href="#" class="text-dark"><i class="fa-solid fa-cart-shopping fa-xl text-dark "></i></a>
                     </div>
                 </div>
             </div>

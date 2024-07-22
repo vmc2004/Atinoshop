@@ -6,7 +6,7 @@
      <!-- Hero Section Begin -->
      <section class="hero">
         <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="{{asset('/asset/')}}/img/hero/hero-1.jpg">
+            <div class="hero__items set-bg" data-setbg="">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
@@ -100,9 +100,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="filter__controls">
-                        <li class="active" data-filter="*">Best Sellers</li>
-                        <li data-filter=".new-arrivals">New Arrivals</li>
-                        <li data-filter=".hot-sales">Hot Sales</li>
+                        <li class="active" data-filter="*">Bán chạy nhất</li>
+                        <li data-filter=".new-arrivals">Hàng mới về</li>
+                        <li data-filter=".hot-sales">Giảm giá </li>
                     </ul>
                 </div>
             </div>
