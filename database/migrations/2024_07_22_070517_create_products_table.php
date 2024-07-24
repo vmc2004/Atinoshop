@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,18 +14,23 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->foreignIdFor(Category::class)->constrained();
             $table->string('name');
-            $table->string('image');
-            $table->integer('price');
-            $table->integer('sale_price');
-            $table->text('description');
-            $table->string('material');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('brand_id');
+            $table->string('slug')->unique();
+            $table->string('sku')->unique();
+            $table->string('img_thumnail')->nullable();
+            $table->double('price');
+            $table->double('sale_price')->nullable();
+            $table->string('description')->nullable();
+            $table->longText('content')->nullable();
+            $table->string('material')->comment('Chất liệu');
+            $table->unsignedBigInteger('view')->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->boolean('is_hot_deal')->default(false);
+            $table->boolean('is_show_home')->default(false);
+
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+        
         });
     }
 

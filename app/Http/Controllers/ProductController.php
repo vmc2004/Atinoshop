@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Product;
-use App\Models\Size;
+use App\Models\ProductSize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,9 +14,9 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        $products = Product::all();
+        $products = Product::paginate(9);
         $brands = Brand::all();
-        $sizes = Size::all();
+        $sizes = ProductSize::all();
         return view('client.shop', compact('products','brands', 'sizes'));
     }
 

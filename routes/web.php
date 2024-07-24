@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Admin 
-Route::get('/dashboard', function () {
-    return view('admin.main');
-});
+
 
 
 
@@ -32,8 +31,6 @@ Route::get('/', function(){
     return view('client.home');
 });
 Route::get('/shop', [ProductController::class, 'index']);
-Route::resource('product', UserController::class);
-
 // Kết thúc của người dùng 
 Auth::routes();
 
