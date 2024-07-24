@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,10 +32,9 @@ Route::get('/', function(){
     return view('client.home');
 });
 Route::get('/shop', [ProductController::class, 'index']);
-
-Route::get('/singin', [UserController::class, 'login'])->name('signin');
-Route::get('/signup', [UserController::class, 'signup'])->name('signup');
-
 Route::resource('product', UserController::class);
 
 // Kết thúc của người dùng 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

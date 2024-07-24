@@ -70,7 +70,7 @@
                                 </div>
                                 <button class="btn btn-primary shadow-2 mb-4">Đăng nhập</button>
                                 <p class="mb-2 text-muted">Quên mật khẩu ? <a href="auth-reset-password.html" class="f-w-400">Reset</a></p>
-                                <p class="mb-0 text-muted">Bạn chưa có tài khoản ? <a href="{{route('signup')}}" class="f-w-400">Đăng ký</a></p>
+                                <p class="mb-0 text-muted">Bạn chưa có tài khoản ? <a href="{{route('register')}}" class="f-w-400">Đăng ký</a></p>
                             </div>
                             </form>
                     </div>
