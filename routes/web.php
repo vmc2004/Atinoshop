@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -33,5 +34,8 @@ Route::get('/', function(){
 Route::get('/shop', [ProductController::class, 'index']);
 // Kết thúc của người dùng 
 Auth::routes();
+
+Route::get('search', [HomeController::class, 'search'])->name('search');
+Route::get('profile', [UserController::class, 'profile'])->name('profile');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

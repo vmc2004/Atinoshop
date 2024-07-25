@@ -5,19 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
     const PATH_VIEW = 'admin.categories.';  
-    const PATH_UPLOAD = 'categories.';  
+    const PATH_UPLOAD ='categories';
+ 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Category::query()->latest('id')->paginate(9);
+        $data = Category::query()->latest('id')->paginate(5);
         return view(self::PATH_VIEW .__FUNCTION__, compact('data'));
     }
 
@@ -35,13 +35,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data =  $request->except('image');
-
-        if($request->hasFile('image')){
-            $data['image'] = Storage::put(self::PATH_UPLOAD ,$request->file('image') );
+        $data['is_active'] ??= 0;   
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $data['image'] = Storage::put(self::PATH_UPLOAD, $file);
         }
-    
+        
+
         Category::query()->create($data);
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -67,7 +69,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $model = Category::query()->findOrFail($id);
+        $data =  $request->except('image');
+        $data['is_active'] ??= 0;   
+        if ($request->hasFile('image')) {
+            $data['image'] = Storage::put(self::PATH_UPLOAD, $request->file('image'));
+        }
+        
+        $currentImage = $model->image;
+
+        $model->update($data);
+        if($currentImage && Storage::exists($currentImage)){
+            Storage::delete($currentImage);
+        }
+        return back();
     }
 
     /**
@@ -75,6 +90,10 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+    
+        return redirect()->route('admin.categories.index');
+
     }
 }

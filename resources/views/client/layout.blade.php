@@ -9,12 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Atino | @yield('title')</title>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     
     rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Css Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap.min.css')}}" type="text/css">
@@ -25,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('asset/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('asset/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('asset/css/drowdown.css')}}" type="text/css">
 </head>
 
 <body>
@@ -119,10 +119,23 @@
                     </nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
-                    <div class="header__nav__option">
-                        <a href="#" class="search-switch text-dark"><i class="fa-solid fa-magnifying-glass fa-xl text-black"></i></a>
-                        <a href="#" class="text-dark"><i class="fa-regular fa-heart fa-xl text-dark"></i></a>
+                    <div class="header__nav__option dropdown d-flex">
+                        <a href="" class="search-switch text-dark"><i class="fa-solid fa-magnifying-glass fa-xl text-black"></i></a>
                         <a href="#" class="text-dark"><i class="fa-solid fa-cart-shopping fa-xl text-dark "></i></a>
+                        {{-- <div class="dropdown"> --}}
+                            <div class="dropdown">
+                                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark"  id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('asset/img/avavat-defaul.jpg')}}" class=" rounded-circle me-3" alt="" width="30px">
+                                   {{-- Vũ Minh Chiến --}}
+                                </a>
+                            
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="./about.html">Trang cá nhân</a></li>
+                                    <li><a class="dropdown-item" href="./shop-details.html">Đơn hàng</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        
                     </div>
                 </div>
             </div>
@@ -204,8 +217,9 @@
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
+            <form class="search-model-form" >
+                
+                <input type="text" id="search-input" name="content" placeholder="Search here.....">
             </form>
         </div>
     </div>
@@ -223,6 +237,7 @@
     <script src="{{asset('asset/js/mixitup.min.js')}}"></script>
     <script src="{{asset('asset/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('asset/js/main.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

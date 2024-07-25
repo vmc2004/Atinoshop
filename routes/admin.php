@@ -20,6 +20,6 @@ Route::prefix('admin')
                 Route::get('show/{id}', [CategoryController::class, 'show'])->name('show');
                 Route::get('{id}/edit', [CategoryController::class, 'edit'])->name('edit');
                 Route::put('{id}/update', [CategoryController::class, 'update'])->name('update');
-                Route::delete('{id}/destroy', [CategoryController::class, 'destroy'])->name('destroy');
+                Route::get('{id}/destroy', [CategoryController::class, 'destroy'])->name('destroy');
             });
     });
